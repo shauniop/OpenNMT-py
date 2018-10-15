@@ -258,7 +258,9 @@ def build_save_vocab(train_dataset, fields, opt):
 
 
 def main():
+    # Options are parsed and stored in opt object
     opt = parse_args()
+    # Logging of data
     init_logger(opt.log_file)
     logger.info("Extracting features...")
 
@@ -272,6 +274,7 @@ def main():
     logger.info("Building `Fields` object...")
     fields = inputters.get_fields(opt.data_type, src_nfeats, tgt_nfeats)
 
+    #Generation of traing, validation and dictionary data
     logger.info("Building & saving training data...")
     train_dataset_files = build_save_dataset('train', fields, opt)
 
